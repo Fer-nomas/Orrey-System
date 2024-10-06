@@ -231,7 +231,25 @@ const InfoPanel = ({setShowLearn}) => {
     </div>
   );
 };
-
+const CreditPanel = ({info}) => {
+  
+  return (
+    <div className="absolute flex items-center justify-center w-screen h-screen bg-neutral-800">
+      <h2 onClick={() => { setIsZoomed(false) }} className="absolute flex items-center mb-4 text-lg font-bold cursor-pointer right-10">Volver<IoIosArrowForward className='pt-1 text-xl' /></h2>
+      <div className="w-[40%] font-semibold text-white h-[80%] relative bg-gray-600 z-[90] flex flex-col items-center justify-start p-10 rounded-lg">
+        <h1 className='text-2xl font-bold text-center text-white'>Pagina Web creada y diseñada para el NasaSpaceChallenge </h1>
+        <img className='p-10' src="https://assets.spaceappschallenge.org/media/images/Space_Apps_Default_Logo_-_2-Col.width-440.jpegquality-60.png" alt="" />
+        <h1 className='text-lg'>Grupo: Los Nietos</h1>
+        <h1>Integrantes: 
+        </h1>
+        <h2>Fernando Avila </h2>
+        <h2>Lucas Velazquez</h2>
+        <h2>Kevin Vazquez</h2>
+        <h2>Enrique Bobadilla</h2>
+      </div>
+    </div>
+  );
+};
 
 
 function App() {
@@ -249,7 +267,7 @@ function App() {
   const [onBack, setOnBack] = useState(false)
   const [infoPlanet, setinfoPlanet] = useState('')
   const [showLearn, setShowLearn] = useState(false)
-  console.log(showLearn)
+  
   const handleFilterToggle = () => {
     setShowFilterPanel(prev => !prev);
   };
@@ -277,7 +295,7 @@ function App() {
 
       </div>
       <LayerPanel setShowLearn={setShowLearn} info={info} setInfo={setInfo} setOnBack={setOnBack} onBack={onBack} setOnPass={setOnPass} onPass={onPass} onPlay={onPlay} setOnPlay={setOnPlay} panel={showFilterPanel} showLayerPanel={showLayerPanel} setShowLayerPanel={setShowLayerPanel} />
-      
+      {info && (<CreditPanel info={info}/>)}
       {showLearn && (<InfoPanel setShowLearn={setShowLearn}/>)}
       {isZoomed && (<PlanetPanel setIsZoomed={setIsZoomed} info={infoPlanet} />)}
       {showLayerPanel && (

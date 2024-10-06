@@ -333,7 +333,7 @@ const Asteroid = ({
         <group>
             {showAsteroidTrails ? <Line points={orbitPoints} color="grey" lineWidth={1} /> : null}
             <mesh ref={ref}>
-                <sphereGeometry args={[size, 6, 6]} />
+                <sphereGeometry args={[size, 1, 1]} />
                 <meshBasicMaterial color={color} /> 
             </mesh>
             {showLabels && (
