@@ -84,9 +84,9 @@ const LayerPanel = ({setShowLearn, panel, showLayerPanel, setShowLayerPanel, set
           Eyes on Stars
         </div>
         <ul className='items-center hidden gap-12 text-base font-semibold xl:flex'>
-          <li onClick={()=>{setShowLearn(prev => !prev)}} className='p-3 transition-all rounded-md cursor-pointer hover:bg-white-400 hover:scale-110 hover:text-gray'>Learn</li>
-          <li className='p-3 transition-all rounded-md cursor-pointer hover:bg-white-400 hover:text-gray hover:scale-110'>Asteroid Watch</li>
-          <li className='p-3 transition-all rounded-md cursor-pointer hover:bg-white-400 hover:text-gray hover:scale-110'>Filters</li>
+          <li onClick={()=>{setShowLearn(prev => !prev)}} className='p-3 transition-all rounded-md cursor-pointer hover:bg-white-400 hover:scale-110 hover:text-gray'>Aprender</li>
+          <li className='p-3 transition-all rounded-md cursor-pointer hover:bg-white-400 hover:text-gray hover:scale-110'>Vista Asteroides</li>
+          <li className='p-3 transition-all rounded-md cursor-pointer hover:bg-white-400 hover:text-gray hover:scale-110'>Filtros</li>
         </ul>
         <div className='relative items-center justify-center hidden gap-3 md:flex'>
           <IoSearchSharp className='text-2xl ' />
@@ -192,13 +192,15 @@ const InfoPanel = ({setShowLearn}) => {
   ]
   return (
     <div className="absolute flex items-center justify-center w-screen h-screen bg-neutral-800">
-      <div className={`${popUp ? 'opacity-100':"opacity-0"} absolute z-40 flex items-center justify-center text-white bg-gray-600 rounded-lg h-80 w-80 right-40 p-8`}>{popUpInfo}</div>
+      <div className={`${popUp ? 'opacity-100':"opacity-0"} absolute z-40 flex items-center justify-center text-white bg-gray-600 rounded-lg h-80 w-80 right-40 p-8`}>\
+        {popUpInfo}
+        </div>
       <div className="w-80 h-[80%] relative bg-gray-600 z-[90] flex flex-col items-center justify-start p-10 rounded-lg">
         
         <div onClick={()=>{setShowLearn(prev => !prev)}}  className='pl-[200px] text-white font-bold flex justify-center items-center hover:scale-110 cursor-pointer transition-all '>Volver <IoIosArrowForward className='pt-1 text-xl' /></div>
         {/* Encabezado */}
         <h1 className="text-2xl font-bold text-white">Learn</h1>
-
+     
         {/* Subtítulo */}
         <p className="mt-2 text-sm text-center text-white">
         Sumérgete más profundamente en los asteroides con nuestras historias
@@ -281,6 +283,7 @@ function App() {
       if (planet.name == name) { setinfoPlanet(planet) }
     })
   };
+  
   return (
     <div className="relative flex w-screen h-screen overflow-hidden bg-gray-950">
 
